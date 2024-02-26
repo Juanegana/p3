@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    display: inline-block;
+    width: 100px;
+    height: 150px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    perspective: 1000px; /* Efecto de perspectiva */
+}
+
+.card img.front {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    backface-visibility: hidden; /* Ocultar la parte trasera durante la animación */
+    position: absolute;
+    transition: transform 0.5s; /* Animación de volteo */
+    transform: rotateY(180deg); /* Inicialmente oculta la carta */
+}
+
+.card img.back {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    backface-visibility: hidden; /* Ocultar la parte trasera durante la animación */
+    position: absolute;
+    transition: transform 0.5s; /* Animación de volteo */
+    transform: rotateY(0deg); /* Voltea la carta para mostrar la parte trasera */
+}
+
+.card.flipped img.front {
+    transform: rotateY(0deg); /* Voltea la carta para mostrar la parte frontal */
+}
+
+.card.flipped img.back {
+    transform: rotateY(180deg); /* Oculta la parte trasera de la carta volteada */
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #45a049;
+}
+
+.buttons button:last-child {
+    background-color: #f44336;
+}
+
+.buttons button:last-child:hover {
+    background-color: #da190b;
+}
